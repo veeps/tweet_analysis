@@ -1,7 +1,7 @@
 import GetOldTweets3 as got
 import pandas as pd
 
-def pull_tweets(username, count, start_date, end_date):
+def pull_tweets(username, start_date, end_date):
 	"""
 	Pull old tweets
 	username (string) = Twitter username
@@ -11,7 +11,7 @@ def pull_tweets(username, count, start_date, end_date):
 	"""
 
     # Creation of query object
-	tweetCriteria = got.manager.TweetCriteria().setUsername(username).setSince(start_date).setUntil(end_date).setMaxTweets(count)
+	tweetCriteria = got.manager.TweetCriteria().setUsername(username).setSince(start_date).setUntil(end_date)
 
     # Creation of list that contains all tweets
 	tweets = got.manager.TweetManager.getTweets(tweetCriteria)
