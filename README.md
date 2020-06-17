@@ -61,10 +61,10 @@ I pulled all the tweets that included the words "collaboration" or "solidarity."
 You can see the number of tweets with "collaboration" or "solidarity" keywords increased after 2020.
 ![Keywords](./plots/keyword_tweets.png)
 
-#Here are some examples of these tweets:
--"There has been an extraordinary response to our call for countries to join the solidarity trial which is comparing four drugs and drug combinations so far countries have either joined the trial or are in the process of joining"
--"Only together can we get through the pandemic in national unity and global solidarity"
--"Through solidarity through trust through working together we have a chance to turn a tragic pandemic into a beacon of hope for the future of our planet"
+**Here are some examples of these tweets:**
+- "There has been an extraordinary response to our call for countries to join the solidarity trial which is comparing four drugs and drug combinations so far countries have either joined the trial or are in the process of joining"
+- "Only together can we get through the pandemic in national unity and global solidarity"
+- "Through solidarity through trust through working together we have a chance to turn a tragic pandemic into a beacon of hope for the future of our planet"
 
 Full list of collaboration/solidarity tweets can be seen [here](./data/who_collab_tweets.csv)
 
