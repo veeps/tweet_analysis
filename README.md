@@ -16,7 +16,7 @@ A COVID-19 vaccine or treatment won't save us, but a free one will. We need to e
 
 
 #### Twitter
-To start, I pulled tweets from WHO six months before the pandemic hit (January 2020), and six months after. 
+To start, I pulled tweets from WHO six months before the pandemic hit (January 2020), and six months after. Modules for pulling tweets was done in Python [here](./src/scraper/tweet_scraper.py).
 
 #### Description of Data
 
@@ -30,14 +30,14 @@ To start, I pulled tweets from WHO six months before the pandemic hit (January 2
 ### Data Cleaning
 
 
-Regex data cleaning module for tweets can be seen [here](./src/scraper/tweet_scraper.py). I used regular expressions to remove special characters, numeric characters, html, and url's.
+Regex data cleaning module for tweets can be seen [here](./src/scraper/words.py). I used regular expressions to remove special characters, numeric characters, html, and url's.
 
 ### Exploring the Data
 
-The data exploratory work was done mostly in python [here](./code/002_EDA.ipynb).
+The data exploratory work was done in Python [here](./code/002_EDA.ipynb).
 
 
-I first wanted to explore the bigrams in each subreddit. This was an iterative process:
+I first wanted to explore the most commmon bigrams before and after 2020. This was an iterative process:
 
 1. Look at the most common words in my dataset
 2. Determine which ones should be considered as stop words
