@@ -16,15 +16,15 @@ A COVID-19 vaccine or treatment won't save us, but a free one will. We need to e
 
 
 #### Twitter
-To start, I pulled tweets from WHO six months before the pandemic hit (January 2020), and six months after. Modules for pulling tweets was done in Python [here](./src/scraper/tweet_scraper.py).
+To start, I pulled tweets from WHO, CEPIvaccine, EU_Commission, and AstraZeneca six months before the pandemic hit (January 2020), and six months after. Modules for pulling tweets was done in Python [here](./src/scraper/tweet_scraper.py).
 
 #### Description of Data
 
 
-|Date Range|# of Tweets|
-|:---|:---|
-|Between June - December 2019|2347|
-|Between January - June 2020|3844|
+|Date Range|WHO Tweets|CEPI|EU_Commission|AstraZeneca|
+|:---|:---|:---|:---|:---|
+|Between June - December 2019|2347|621|1580|587|
+|Between January - June 2020|3844|483|1180|157|
 
 
 ### Data Cleaning
