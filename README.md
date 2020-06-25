@@ -1,4 +1,4 @@
-# Tweet Analysis
+# COVID Research Tweet Analysis
 
 ### Executive Summary
 
