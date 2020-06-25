@@ -1,8 +1,9 @@
 # COVID Research Tweet Analysis
+Prject for Doctors Without Borders Access Campaign
 
 ### Executive Summary
 
-Globally, people are calling for collaboration to develop COVID-19 treatments and vaccines that are available to everyone. Our hypothesis is that institutions are also calling for this change now. This could be a moment to disrupt our typical R&D system–the one that upholds profits over lives. 
+People are holding on to hope for an expedited development of a COVID-19 vaccine, or treatments, that can reverse the trajectory of this pandemic. However, we know that a vaccine or treatment can only do so when it is affordable and available to everyone. Globally, people are calling for collaboration to develop COVID-19 treatments and vaccines. Our hypothesis is that institutions that regulate drug development are also calling for this change now. This could be a moment to disrupt our typical R&D system–the one that upholds profits over lives–and transforms how we incentivize drug development.
 
 
 ---
