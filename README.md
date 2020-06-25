@@ -45,10 +45,10 @@ I first wanted to explore the most commmon bigrams before and after 2020. This w
 4. Repeat until I get common words that have actual meaning
 
 The most common bigrams between June - December 2019 were:
-![Top bigrams 2019](./plots/top_words_2019.png)
+![Top bigrams 2019](./plots/who_top_words_2019.png)
 
 The most common bigrams between January - June 2020 were:
-![Top bigrams 2019](./plots/top_words_2020.png)
+![Top bigrams 2019](./plots/who_top_words_2020.png)
 
 You can see that the word "solidarity" becomes one of the top words after the pandemic hit.
 
