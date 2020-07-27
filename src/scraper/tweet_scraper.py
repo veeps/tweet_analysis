@@ -25,6 +25,26 @@ def pull_tweets(username, start_date, end_date):
 	return user_tweets
 
 
+def query_tweets(query, start_date, end_date):
+	"""
+	Pull old tweets
+	query (string) = Search keyword
+	count (numeric) = Number of tweets to pull. Max 3000
+	start_date (string) = YYYY-MM-DD
+	end_date (string) = YYYY-MM-DD
+	"""
+
+    # Creation of query object
+	tweetCriteria = got.manager.TweetCriteria().setQuerySearch(query).setSince(start_date).setUntil(end_date)
+
+    # Creation of list that contains all tweets
+	tweets = got.manager.TweetManager.getTweets(tweetCriteria)
+
+    # Create df for tweets
+	user_tweets = pd.DataFrame([[tweet.date, tweet.text, tweet.username] for tweet in tweets])
+    
+	return user_tweets
+
 def clean_tweets(df, tweets):
 	"""
 	Clean text column
@@ -53,7 +73,7 @@ def clean_tweets(df, tweets):
 	df[tweets] = df[tweets].map(lambda x: re.sub("\#[\w]*", "", x))
 
 	# remove AT users
-	df[tweets] = df[tweets].map(lambda x: re.sub("\@[\w]*", "", x))
+	#df[tweets] = df[tweets].map(lambda x: re.sub("\@[\w]*", "", x))
 
 	# remove single quotations
 	df[tweets] = df[tweets].map(lambda x: re.sub("'", "", x))
@@ -63,7 +83,7 @@ def clean_tweets(df, tweets):
 	df[tweets] = df[tweets].map(lambda x: re.sub("[^\w\d]", " ", x))
 
 	# remove all characters that are not letters
-	df[tweets] = df[tweets].map(lambda x: re.sub("[^a-zA-Z]", " ", x))
+	#df[tweets] = df[tweets].map(lambda x: re.sub("[^a-zA-Z]", " ", x))
 
 	# remove multiple spaces
 	df[tweets] = df[tweets].map(lambda x: re.sub("\s{2,6}", " ", x))
