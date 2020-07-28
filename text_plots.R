@@ -4,11 +4,22 @@ library(lubridate)
 library(RColorBrewer)
 library(DT)
 library(tidytext)
+
+
+
+# read afinn words
+afinn <- readr::read_csv("./data/afinn.csv")
 # update data format
 #df$date <- lubridate::ymd(as.Date(df$date))
 
 # update date options
 #df$date <- ymd(as.Date(df$date)) %>% format("%d-%m-%Y")
+
+#rename date column
+df<- df %>% 
+  rename(
+  tweet_date= date
+)
 
 # custom stop words
 custom_stop_words <- c(stop_words$word , "global", "public", "good", "common")
@@ -36,11 +47,11 @@ output$plot_words <- renderPlot({
 afinn_words <- df %>%
   unnest_tokens(word, text) %>%
   filter (!word %in% custom_stop_words) %>%
-  inner_join(get_sentiments("afinn"), by = "word")
+  inner_join(afinn, by = "word")
 
 ########### Get the sum of scores for each day
 word_scores <- afinn_words %>%
-  group_by(week=floor_date(date, "week")) %>% # group by date
+  group_by(week=floor_date(tweet_date, "week")) %>% # group by date
   summarise(score = mean(value)) # add all values for the score
 
 # plot by date

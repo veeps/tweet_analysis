@@ -3,6 +3,8 @@ library(tidyverse)
 library(lubridate)
 library(RColorBrewer)
 library(DT)
+library(tidytext)
+library(textdata)
 
 ui <- fluidPage(
   fluidRow(
@@ -31,21 +33,22 @@ ui <- fluidPage(
 server <- function(input, output, session) {
   observeEvent(input$gpg,{
     df <- readr::read_csv("./data/gpg.csv")
-    source("text_plots.R", local = TRUE)
+    source("./text_plots.R", local = TRUE)
   })
   
   observeEvent(input$gpgs,{
     df <- readr::read_csv("./data/gpgs.csv")
-    source("text_plots.R", local = TRUE)
+    source("./text_plots.R", local = TRUE)
   })
   
   observeEvent(input$gcg,{
     df <- readr::read_csv("./data/gcg.csv")
-   source("text_plots.R", local = TRUE)
+   source("./text_plots.R", local = TRUE)
   })
   
- source("text_plots.R", local = TRUE)
-  
+  df <- readr::read_csv("./data/gpg.csv")
+  source("./text_plots.R", local = TRUE)
+
   
 }
 
