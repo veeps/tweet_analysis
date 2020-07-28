@@ -72,6 +72,9 @@ def clean_tweets(df, tweets):
 	# remove hashtags =
 	df[tweets] = df[tweets].map(lambda x: re.sub("\#[\w]*", "", x))
 
+	# remove and signs
+	df[tweets] = df[tweets].map(lambda x: re.sub("\&amp;", "", x))
+
 	# remove AT users
 	#df[tweets] = df[tweets].map(lambda x: re.sub("\@[\w]*", "", x))
 
@@ -80,7 +83,7 @@ def clean_tweets(df, tweets):
 	df[tweets] = df[tweets].map(lambda x: re.sub("'", "", x))
 
 	# remove characters that are not word characters or digits
-	df[tweets] = df[tweets].map(lambda x: re.sub("[^\w\d]", " ", x))
+	#df[tweets] = df[tweets].map(lambda x: re.sub("[^\w\d]", " ", x))
 
 	# remove all characters that are not letters
 	#df[tweets] = df[tweets].map(lambda x: re.sub("[^a-zA-Z]", " ", x))
