@@ -1,4 +1,3 @@
-library(topicmodels)
 library(tidyverse)
 library(tidytext)
 library(ggplot2)
@@ -45,4 +44,6 @@ twitter_users <- c("WHO", "msf_access", "GaviSeth")
 df %>%
   filter(user %in% twitter_users)
 
+ymd(as.Date(df$date)) %>% format("%d-%m-%Y")
          
+head(df$date)
