@@ -7,14 +7,14 @@ library(tidytext)
 library(textdata)
 
 ui <- fluidPage(
-  fluidRow(
-    column(3,h2("Select Data Set")),
-    column(3,div(style="padding: 20px", actionButton("gpg", "Global Public Good"))),
-    column(3,div(style="padding: 20px", actionButton("gpgs", "Global Public Goods"))),
-    column(3,div(style="padding: 20px", actionButton("gcg", "Global Common Good")))
+  fluidRow(style="background-color:#30cbcf",
+    column(5,h2(style="padding-left: 40px", "Select Data Set")),
+    column(2,div(style="padding: 20px", actionButton("gpg", "Global Public Good"))),
+    column(2,div(style="padding: 20px", actionButton("gpgs", "Global Public Goods"))),
+    column(2,div(style="padding: 20px", actionButton("gcg", "Global Common Good")))
   ),
   
-  fluidRow(
+  fluidRow(style="padding-top:40px",
     column(6,plotOutput("plot_words")),
     column(6,plotOutput("plot_sentiment"))
   ),
