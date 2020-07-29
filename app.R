@@ -23,7 +23,7 @@ ui <- fluidPage(
     div(style="padding:20px",
     column(3,radioButtons("checkGroup",
                  label= h3("Explore Tweets From"),
-                 choices=c("No Filter", "WHO", "GaviSeth", "msf_access", "WorldBank","UNITAID" ), selected = "No Filter")
+                 choices=c("No Filter", "WHO", "GaviSeth", "msf_access", "WorldBank","UNITAID", "GHS", "DNDi", "DrTedros", "DrChristou", "CEPIvaccines" ), selected = "No Filter")
            ),
     column(9,DTOutput("tweets_df"))
 ))
