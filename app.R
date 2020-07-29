@@ -7,7 +7,7 @@ library(tidytext)
 library(textdata)
 
 ui <- fluidPage(
-  fluidRow(style="background-color:#30cbcf",
+  fluidRow(style="background-color: #7cd8c9",
     column(5,h2(style="padding-left: 40px", "Select Data Set")),
     column(2,div(style="padding: 20px", actionButton("gpg", "Global Public Good"))),
     column(2,div(style="padding: 20px", actionButton("gpgs", "Global Public Goods"))),
@@ -21,10 +21,9 @@ ui <- fluidPage(
   
   fluidRow(
     div(style="padding:20px",
-    column(3,checkboxGroupInput("checkGroup",
+    column(3,radioButtons("checkGroup",
                  label= h3("Explore Tweets From"),
-                 choices=c("WHO", "GaviSeth", "msf_access", "WorldBank", "CEPI_Vaccine"),
-                 selected="WHO")
+                 choices=c("No Filter", "WHO", "GaviSeth", "msf_access", "WorldBank","UNITAID" ), selected = "No Filter")
            ),
     column(9,DTOutput("tweets_df"))
 ))

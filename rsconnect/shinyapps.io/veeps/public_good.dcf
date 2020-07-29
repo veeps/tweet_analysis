@@ -5,9 +5,9 @@ account: veeps
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2619169
-bundleId: 3447144
+bundleId: 3448182
 url: https://veeps.shinyapps.io/public_good/
-when: 1595962594.02608
+when: 1595981139.79602
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: project_config.json|README.md|snapshot.R|code|plots|src

@@ -9,8 +9,6 @@ library(tidytext)
 
 # read afinn words
 afinn <- readr::read_csv("./data/afinn.csv")
-# update data format
-#df$date <- lubridate::ymd(as.Date(df$date))
 
 # update date options
 #df$date <- ymd(as.Date(df$date)) %>% format("%d-%m-%Y")
@@ -21,8 +19,12 @@ df<- df %>%
   tweet_date= date
 )
 
+#update data format
+df$tweet_date <- lubridate::ymd(as.Date(df$tweet_date))
+
+
 # custom stop words
-custom_stop_words <- c(stop_words$word , "global", "public", "good", "common")
+custom_stop_words <- c(stop_words$word , "global", "public", "good", "common", "19")
 
 #analyze words
 words <- df %>%
@@ -62,5 +64,15 @@ output$plot_sentiment<- renderPlot({
 })
 
 # get tweets table by user
-output$tweets_df <- renderDT( df %>%
-                                filter(user %in% input$checkGroup), options=list(info = F, paging = F, searching = T))
+
+
+output$tweets_df <- renderDT(
+      if(input$checkGroup == "No Filter"){
+        df
+        } else df %>% filter(user %in% input$checkGroup)
+      , options=list(info = F, paging = T, searching = T) 
+)
+  
+
+  
+ 
