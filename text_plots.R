@@ -51,6 +51,16 @@ afinn_words <- df %>%
   filter (!word %in% custom_stop_words) %>%
   inner_join(afinn, by = "word")
 
+
+# try to combine this back to original df
+df_scores <- afinn_words %>%
+  group_by(tweet_date, user) %>%
+  summarise(sentiment = sum(value))
+
+
+test <- df_scores %>%
+  right_join(df, by = c("user", "tweet_date"))
+
 ########### Get the sum of scores for each day
 word_scores <- afinn_words %>%
   group_by(week=floor_date(tweet_date, "week")) %>% # group by date
@@ -68,8 +78,8 @@ output$plot_sentiment<- renderPlot({
 
 output$tweets_df <- renderDT(
       if(input$checkGroup == "No Filter"){
-        df
-        } else df %>% filter(user %in% input$checkGroup)
+        test %>% select(tweet_date, user, text)
+        } else test %>% filter(user %in% input$checkGroup) %>% select(tweet_date, user, text, sentiment)
       , options=list(info = F, paging = T, searching = T) 
 )
   
