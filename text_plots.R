@@ -33,7 +33,7 @@ colors <-colorRampPalette(c("#30cbcf", "#7cd8c9", "#b4e3c5"))
 output$plot_words <- renderPlot({
   ggplot(words, aes(x=word, y = n, fill = word)) + geom_bar(stat="identity", show.legend = F) + 
     scale_fill_manual(values = colors(10)) + 
-    theme(plot.title = element_text(hjust = 0.5)) +
+    theme(plot.title = element_text(hjust = 0.5, size=18)) +
     ylab("Number of Times Words Appeared") +
     ggtitle("Most Common Words")
 })
@@ -59,7 +59,7 @@ word_scores <- afinn_words %>%
 # plot by date
 output$plot_sentiment<- renderPlot({
   ggplot(word_scores, aes(x = week, y = score, fill=ifelse(score > 0, T, F))) + geom_bar(stat="identity", show.legend = F) +
-    ylim(-2.5,2.5) + theme(plot.title = element_text(hjust = 0.5)) +
+    ylim(-2.5,2.5) + theme(plot.title = element_text(hjust = 0.5, size=18)) +
     ggtitle("Average Sentiment Score of Tweets Per Week")
 })
 
