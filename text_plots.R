@@ -1,10 +1,3 @@
-library(shiny)
-library(tidyverse)
-library(lubridate)
-library(RColorBrewer)
-library(DT)
-library(tidytext)
-
 
 
 # read afinn words
@@ -53,12 +46,9 @@ afinn_words <- df %>%
 
 
 # try to combine this back to original df
-df_scores <- afinn_words %>%
+df <- afinn_words %>%
   group_by(tweet_date, user) %>%
-  summarise(sentiment = sum(value))
-
-
-test <- df_scores %>%
+  summarise(sentiment = sum(value)) %>%
   right_join(df, by = c("user", "tweet_date"))
 
 ########### Get the sum of scores for each day
@@ -78,8 +68,9 @@ output$plot_sentiment<- renderPlot({
 
 output$tweets_df <- renderDT(
       if(input$checkGroup == "No Filter"){
-        test %>% select(tweet_date, user, text)
-        } else test %>% filter(user %in% input$checkGroup) %>% select(tweet_date, user, text, sentiment)
+        DT::datatable(df %>% select(tweet_date, user, text, sentiment)) %>%
+          formatStyle('text', 'sentiment', color = styleEqual(c(-6,-5,-4,-3,-2,-1,1,2,3,4,5,6), c('#f8766d','#f8766d','#fb9ca3','#fb9ca3','#fb9ca3','#fb9ca3','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4')))
+        } else df %>% filter(user %in% input$checkGroup) %>% select(tweet_date, user, text)
       , options=list(info = F, paging = T, searching = T) 
 )
   
