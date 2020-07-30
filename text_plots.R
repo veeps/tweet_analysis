@@ -69,8 +69,10 @@ output$plot_sentiment<- renderPlot({
 output$tweets_df <- renderDT(
       if(input$checkGroup == "No Filter"){
         DT::datatable(df %>% select(tweet_date, user, text, sentiment)) %>%
-          formatStyle('text', 'sentiment', color = styleEqual(c(-6,-5,-4,-3,-2,-1,1,2,3,4,5,6), c('#f8766d','#f8766d','#fb9ca3','#fb9ca3','#fb9ca3','#fb9ca3','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4')))
-        } else df %>% filter(user %in% input$checkGroup) %>% select(tweet_date, user, text)
+          formatStyle('text', 'sentiment', color = styleEqual(c(-6,-5,-4,-3,-2,-1,1,2,3,4,5,6, 7,8,9), c('#f8766d','#f8766d','#fb9ca3','#fb9ca3','#fb9ca3','#fb9ca3','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4')))
+        } else 
+          DT::datatable(df %>% filter(user %in% input$checkGroup) %>% select(tweet_date, user, text, sentiment)) %>%
+        formatStyle('text', 'sentiment', color = styleEqual(c(-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8,9), c('#f8766d','#f8766d','#fb9ca3','#fb9ca3','#fb9ca3','#fb9ca3','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4','#01bfc4')))
       , options=list(info = F, paging = T, searching = T) 
 )
   
